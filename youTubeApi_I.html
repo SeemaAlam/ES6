@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube API- I</title>
+    <link rel="stylesheet" type="text/css" href="youTubeApi.css">
+  </head>
+  
+  </style>
+  <body>
+    <header class="header">
+        <a href="#">
+          <img src="logo.png" alt="YouTube Logo" class="youtube-logo" />
+        </a>
+        <form class="search-bar">
+          <input class="search-input" type="search" placeholder="Search" aria-label="Search" id="searchVideos" />
+          <button type="submit" class="search-btn" id="search-btn" onclick="displayMovies(event)"">
+            <img src="magnify.svg" />
+          </button>
+        </form>
+        <div class="menu-icons">
+          <a href="#">
+            <img src="video-plus.svg" alt="Upload Video" />
+          </a>
+          <a href="#">
+            <img src="apps.svg" alt="Apps" />
+          </a>
+          <a href="#">
+            <img src="bell.svg" alt="Notifications" />
+          </a>
+          <a href="#">
+            <img class="menu-channel-icon" src="https://www.w3schools.com/w3images/avatar6.png" alt="Your Channel" />
+          </a>
+        </div>
+      </header>
+      <div class="videos">
+      <section class="video-section" id="videosDisplay"></section>
+      </div>
+      </body>
+</html>
+<script src="youTubeApi.js">  
+</script>

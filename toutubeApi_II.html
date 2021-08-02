@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube API-II</title>
+    <link rel="stylesheet" type="text/css" href="youTubeApi.css">
+  </head>
+  
+  </style>
+  <body>
+    <header class="header">
+        <a href="#">
+          <img src="logo.png" alt="YouTube Logo" class="youtube-logo" />
+        </a>
+        <form class="search-bar">
+          <input class="search-input" type="search" placeholder="Search" aria-label="Search" id="searchVideos" />
+          <button type="submit" class="search-btn" id="search-btn" onclick="displayMovies(event)"">
+            <img src="magnify.svg" />
+          </button>
+        </form>
+        <div class="menu-icons">
+          <a href="#">
+            <img src="video-plus.svg" alt="Upload Video" />
+          </a>
+          <a href="#">
+            <img src="apps.svg" alt="Apps" />
+          </a>
+          <a href="#">
+            <img src="bell.svg" alt="Notifications" />
+          </a>
+          <a href="#">
+            <img class="menu-channel-icon" src="https://www.w3schools.com/w3images/avatar6.png" alt="Your Channel" />
+          </a>
+        </div>
+      </header>
+      <div class="videos">
+      <section class="video-section" id="videosDisplay"></section>
+      </div>
+      </body>
+      
+</html>
+<script>
+ async function myFunction() {
+  let responce = await fetch(
+  `https://www.googleapis.com/youtube/v3/search?q=mostPopular&key=AIzaSyBjRAO8wOdSWQbxrryr8JYl9JnkhxXfkuU&maxResults=20`
+);
+let data = await responce.json();
+
+
+let videosection = document.getElementById("videosDisplay");
+videosection.innerHTML=null;
+let { items } = data; console.log(data);
+
+items.forEach(({ id: { videoId } }) => {
+  
+ 
+  let divimg=document.createElement("div");
+  divimg.innerHTML=`<iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube">`
+ // divimg.setAttribute('class','thumbnail')
+
+     
+  let videcont=document.createElement("div");
+  videcont.setAttribute('class','video-container')
+  videcont.appendChild(divimg);
+  videosection.appendChild(videcont);
+});
+}
+
+myFunction();
+</script>
+<script src="youTubeApi.js">
+</script>
