@@ -44,7 +44,7 @@
 <script>
  async function myFunction() {
   let responce = await fetch(
-  `https://www.googleapis.com/youtube/v3/search?q=mostPopular&key=AIzaSyBjRAO8wOdSWQbxrryr8JYl9JnkhxXfkuU&maxResults=20`
+  `https://www.googleapis.com/youtube/v3/search?key=AIzaSyBjRAO8wOdSWQbxrryr8JYl9JnkhxXfkuU&maxResults=20&videoCategory=mostPopular&regionCode=IN`
 );
 let data = await responce.json();
 
